@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+
+    <div>
+        <form action="/" method="POST">
+            <label for="city">
+                City Name :
+                <input type="text" name="city">
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+
+        <% if(locals.location) {%>
+        <h1><%= location.name %>, <%= location.country %></h1>
+        <img src="<%= weather.weather_icons[0] %>" alt="weather icon">
+        <h2> Weather : <%= weather.weather_descriptions[0] %></h2>
+        <h2> Temp : <%= weather.temperature %></h2>
+        <h2> Fells Like : <%= weather.feelslike %></h2>
+        <h2> Humidity : <%= weather.humidity %></h2>
+        <% } %>
+
+        <% if(locals.error) { %>
+        <h1><%= error.info %></h1>
+        <% } %>
+    </div>
+
+</body>
+
+</html>
